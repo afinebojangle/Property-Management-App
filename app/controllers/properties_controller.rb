@@ -6,4 +6,9 @@ class PropertiesController < ApplicationController
     @properties = current_user.properties.all
   end
 
+  def show
+    @property = Property.find(params[:id])
+    @units = @property.units
+  end
+
 end

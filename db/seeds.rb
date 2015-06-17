@@ -15,3 +15,12 @@ end
     address:  Faker::Address.street_address,
     description:  Faker::Lorem.paragraph)
 end
+
+
+25.times do
+
+  Unit.create!(
+    property_id: rand(10),
+    name: Faker::Lorem.name,
+    description: Faker::Lorem.sentences)
+end
