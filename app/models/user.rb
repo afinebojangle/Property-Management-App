@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
          :confirmable, :lockable, :timeoutable
 
   has_many :properties, dependent: :destroy
+  has_many :leases, dependent: :destroy
 end

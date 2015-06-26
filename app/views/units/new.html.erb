@@ -1,0 +1,12 @@
+<h2>Add a unit to <%= "#{@property.address}" %></h2>
+<%= form_for [@property, @unit] do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "Save" %>
+
+<% end %>
