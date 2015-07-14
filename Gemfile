@@ -5,6 +5,8 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'figaro', '1.0'
 gem 'faker'
+gem 'squeel'
+gem 'simple_form'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

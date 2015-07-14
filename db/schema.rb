@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618220818) do
+ActiveRecord::Schema.define(version: 20150714202312) do
 
   create_table "leases", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "unit_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.decimal  "amount",     precision: 10, scale: 2
   end
 
   create_table "properties", force: :cascade do |t|
@@ -31,6 +32,19 @@ ActiveRecord::Schema.define(version: 20150618220818) do
   end
 
   add_index "properties", ["user_id"], name: "index_properties_on_user_id"
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "start_date"
+    t.datetime "completed"
+    t.integer  "taskable_id"
+    t.string   "taskable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "tasks", ["start_date"], name: "index_tasks_on_start_date"
+  add_index "tasks", ["taskable_id"], name: "index_tasks_on_taskable_id"
 
   create_table "units", force: :cascade do |t|
     t.string   "name"
