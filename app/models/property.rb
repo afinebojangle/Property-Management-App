@@ -5,9 +5,9 @@ class Property < ActiveRecord::Base
 
   def check_air_filters
     id = self.id
-    count = Task.where{ (description == 'Change Air Filters') & ((taskable_id == id) & (taskable_type == 'property')) & ((completed > (DateTime.now-3.months)) | (completed == nil)) }.count
+    count = Task.where{ (description == 'Change Air Filters') & ((taskable_id == id) & (taskable_type == 'Property')) & ((completed > (DateTime.now-3.months)) | (completed == nil)) }.count
     unless count >= 1
-      Task.create(taskable_id: id, taskable_type: 'property', description: 'Change Air Filters', start_date: DateTime.now)
+      Task.create(taskable_id: id, taskable_type: 'Property', description: 'Change Air Filters', start_date: DateTime.now)
     end
   end
 

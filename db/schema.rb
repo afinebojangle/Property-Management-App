@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150714202312) do
     t.date     "end_date"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.decimal  "amount",     precision: 10, scale: 2
+    t.decimal  "amount", precision: 10, scale: 2
   end
 
   create_table "properties", force: :cascade do |t|

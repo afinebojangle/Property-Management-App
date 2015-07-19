@@ -1,7 +1,7 @@
 <h2><%= "#{@property.address}" %></h2>
 
 <% @units.each do |u| %>
-  <p><%= link_to "#{u.name}", property_unit_path(@property, unit) %></p>
+  <p><%= link_to "#{u.name}", property_unit_path(@property, u) %></p>
 <% end %>
 
 <%= link_to "Add a Unit", new_property_unit_path(@property), class: 'btn btn-primary' %>

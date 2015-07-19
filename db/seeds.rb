@@ -18,9 +18,17 @@ end
 
 
 25.times do
-
   Unit.create!(
     property_id: rand(10),
-    name: Faker::Lorem.name,
+    name: Faker::Address.secondary_address,
     description: Faker::Lorem.sentences)
+end
+
+15.times do
+  Lease.create!(
+    unit_id: rand(25),
+    user_id: 1,
+    start_date: Faker::Date.backward(600),
+    end_date: Faker::Date.forward(365),
+    amount: Faker::Number.decimal(2))
 end

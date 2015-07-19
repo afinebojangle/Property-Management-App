@@ -3,8 +3,8 @@ class Lease < ActiveRecord::Base
   belongs_to :user
   has_many :tasks, as: :taskable
 
-  #scope :current, -> {  where(DateTime.now => :start_date..:end_date) }
-  #where("start_date < ? AND end_date > ?", DateTime.now, DateTime.now)
+  scope :current, -> {  where{ (start_date <= Date.today) & (end_date >= Date.today) } }
+  
 
   def collect_rent
   end
